@@ -28,7 +28,7 @@ class BookController extends Controller
     {
         $show = $action->handle($id);
 
-        return response()->json(['author' => $show['book'], 'message' => $show['message']], $show['status']);
+        return response()->json(['book' => $show['book'], 'message' => $show['message']], $show['status']);
     }
 
     /** Create Book **/

@@ -1,6 +1,9 @@
 import React from "react";
+import {useNavigate} from "react-router-dom";
 
 const AuthorList = ({ authors, openDeleteDialog, openEditDialog }) => {
+
+    const navigate = useNavigate();
 
     const shortenLongName = (name) => {
         if (name.length > 9) {
@@ -9,6 +12,11 @@ const AuthorList = ({ authors, openDeleteDialog, openEditDialog }) => {
             return name;
         }
     }
+
+    const navigateToAuthorInfo = (e) => {
+        let authorId = e.currentTarget.id;
+        navigate('/author/'+authorId)
+    };
 
     return (
         <ul className={'authors-list'}>
@@ -21,6 +29,8 @@ const AuthorList = ({ authors, openDeleteDialog, openEditDialog }) => {
                                 <br />
                                 <span className={'author-icon book-icon'} id={author.id} onClick={openEditDialog}>UPDATE</span>
                                 <span className={'author-icon delete-icon'} id={author.id} onClick={openDeleteDialog}>DELETE</span>
+                                <span className={'author-icon book-icon'} id={author.id} onClick={navigateToAuthorInfo}>INFO</span>
+
                             </h3>
                         </div>
                     </li>

@@ -1,4 +1,4 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="200"></a></p>
 
 ## Technologies used:
 ### Back-end
@@ -30,13 +30,7 @@ ____
 
 ## Installations Back-end via docker
 Run commands:
-1. Specify environment variable DB_HOST=mysql
-   You can use the MySql database created when starting the container by specifying: DB_DATABASE=book_guide
-   Or create your own.
-   DB_USERNAME= ,
-   DB_PASSWORD= fill in these variables when starting the docker container they will create a user automatically with this password
-
-3.
+1.
 ```
 docker run --rm
 -u "$(id -u):$(id -g)"
@@ -46,24 +40,24 @@ laravelsail/php80-composer:latest
 composer install --ignore-platform-reqs
 ```
 
-4.
+2.
 ```
 ./vendor/bin/sail up
 ```
-5.
+3.
 ```
 ./vendor/bin/sail artisan key:generate
 ```
-6
+4.
 ```
 ./vendor/bin/sail artisan storage:link
 ```
-7
+5.
 ```
 ./vendor/bin/sail artisan migrate
 ```
 
-## Installations Back-end composer
+## Installations Back-end via composer
 1. Create mysql DB:
   ```
    CREATE DATABASE dbname;
@@ -71,23 +65,25 @@ composer install --ignore-platform-reqs
    GRANT ALL PRIVILEGES ON dbname.* TO 'username'@'localhost';
    FLUSH PRIVILEGES;
   ```
-2.
+2. Add variables to the env file to connect to the database
+
+3.
   ```
    composer install
   ```
-3.
+4.
   ```
    php artisan serve
   ```
-3.
+5.
   ```
    php artisan key:generate
   ```
-4
+6.
   ```
    php artisan storage:link
   ```
-5
+7.
   ```
    php artisan migrate
   ```

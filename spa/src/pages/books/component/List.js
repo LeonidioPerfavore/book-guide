@@ -2,8 +2,11 @@ import React from "react";
 import {useState} from "react";
 import DeleteBook from "./DeleteBook";
 import UpdateBook from "./UpdateBook";
+import {useNavigate} from "react-router-dom";
 
 export const List = ({books, setBooks}) => {
+
+    const navigate = useNavigate();
 
     const [book, setBook] = useState(null);
     const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
@@ -34,6 +37,11 @@ export const List = ({books, setBooks}) => {
         return `${firstAuthor.first_name.charAt(0)}. ${firstAuthor.last_name}`;
     }
 
+    const navigateToBook = (e) => {
+        let bookId = e.currentTarget.id;
+        navigate('/book/'+bookId)
+    };
+
     return (
         <div>
             <div className={'book-wrapper'}>
@@ -50,7 +58,7 @@ export const List = ({books, setBooks}) => {
                                 <span className={'update-book-icon book-icon'} id={book.id} onClick={openUpdateDialog}>Update</span>
                                 <span className={'delete-book-icon book-icon'} id={book.id} onClick={openDeleteDialog}>Delete</span>
                             </div>
-                            <div className="vertical-title">{book.name}</div>
+                            <div className="vertical-title" onClick={navigateToBook} id={book.id}>{book.name}</div>
                         </div>
                 ))
             ) : (

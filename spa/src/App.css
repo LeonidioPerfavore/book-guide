@@ -150,7 +150,9 @@ canvas{ overflow: hidden; }
 }
 
 .full-screen-navigation-wrapper{ display: flex; }
-
+.info-image{
+    width: 50%;
+}
 .full-screen-link{
     font-size: 18px;
     font-family: 'Super', 'sans-serif';

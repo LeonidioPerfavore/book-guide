@@ -4,6 +4,8 @@ import NotFound from "./pages/NotFound";
 import Home from "./pages/home/Home";
 import Books from "./pages/books/Books";
 import Authors from "./pages/authors/Authors";
+import Book from "./pages/books/Book";
+import Author from "./pages/authors/Author";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
           <Route path="/authors" element={
               <Authors/>
           }/>
+          <Route path="/book/:id" element={<Book />}/>
+          <Route path="/author/:id" element={<Author />}/>
           <Route path="*" element={<NotFound/>}/>
         </Routes>
       </Router>
